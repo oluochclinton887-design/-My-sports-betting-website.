@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYBET - Sports Betting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">MY<span>BET</span></div>
+  <nav>
+    <a href="#">Sports</a>
+    <a href="#">Live</a>
+    <a href="#">Results</a>
+    <a href="#">Promotions</a>
+  </nav>
+  <div class="account">
+    <button class="login" onclick="showLogin()">Login</button>
+    <button class="register" onclick="showRegister()">Register</button>
+  </div>
+</header>
+
+<div class="subnav">
+  <span>⚽ FOOTBALL</span>
+  <span>🏀 BASKETBALL</span>
+  <span>🎾 TENNIS</span>
+  <span>🏐 VOLLEYBALL</span>
+</div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h3>SPORTS</h3>
+    <a href="#">⚽ Football</a>
+    <a href="#">🏀 Basketball</a>
+    <a href="#">🎾 Tennis</a>
+    <a href="#">🏐 Volleyball</a>
+    <h3>QUICK LINKS</h3>
+    <a href="#">🔥 Popular matches</a>
+    <a href="#">📅 Upcoming</a>
+    <a href="#">🔴 Live matches</a>
+  </aside>
+
+  <main class="main">
+    <div class="banner">
+      <h2>WELCOME TO MYBET</h2>
+      <p>Explore football matches and demo betting markets.</p>
+    </div>
+
+    <div class="match-heading">
+      <h2>⚽ Football Matches</h2>
+      <span>DEMO ODDS</span>
+    </div>
+
+    <div class="filters">
+      <button class="active" onclick="filterMatches('all',this)">All</button>
+      <button onclick="filterMatches('live',this)">Live</button>
+      <button onclick="filterMatches('upcoming',this)">Upcoming</button>
+    </div>
+
+    <div id="matches"></div>
+  </main>
+
+  <aside class="betting-slip">
+    <div class="slip-title">
+      <h3>BETTING SLIP</h3>
+      <span id="slip-count">0</span>
+    </div>
+
+    <div id="selections">
+      <p class="empty">Your betting slip is empty.</p>
+    </div>
+
+    <div class="stake-area">
+      <label>Stake amount (KSh)</label>
+      <input id="stake" type="number" min="1"
+        placeholder="Enter stake" oninput="calculate()">
+
+      <div class="calculation">
+        <p>Total odds <strong id="total-odds">1.00</strong></p>
+        <p>Potential return <strong id="potential">KSh 0.00</strong></p>
+      </div>
+
+      <button class="place-bet" onclick="placeBet()">
+        PLACE DEMO BET
+      </button>
+      <button class="clear" onclick="clearSlip()">Clear slip</button>
+      <p class="disclaimer">Demo only. No real money or bets are processed.</p>
+    </div>
+  </aside>
+
+</div>
+
+<div id="account-modal" class="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2 id="modal-title">Login</h2>
+    <input type="text" placeholder="Username or email">
+    <input type="password" placeholder="Password">
+    <button onclick="alert('Demo interface only. Account services are not connected.')">Continue</button>
+    <p>Demo account interface</p>
+  </div>
+</div>
+
+<footer>
+  <p>MYBET © 2026 | Independent sports betting demo</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
