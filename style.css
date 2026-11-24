@@ -417,3 +417,98 @@ footer {
     padding: 22px 15px;
   }
   }
+/* ADMINISTRATOR AND CUSTOMER DASHBOARDS */
+
+[hidden] {
+  display: none !important;
+}
+
+.dashboard {
+  background: white;
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px #00000010;
+}
+
+.dashboard h2 {
+  color: #008b45;
+  margin-bottom: 10px;
+}
+
+.dashboard h3 {
+  margin: 25px 0 15px;
+  color: #26332c;
+}
+
+.dashboard label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.dashboard input,
+.dashboard select {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  border: 1px solid #d4ded7;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+}
+
+.dashboard button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 18px;
+  border: none;
+  border-radius: 5px;
+  background: #008b45;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dashboard button:hover {
+  background: #087b40;
+}
+
+.wallet-card {
+  background: #087d40;
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.wallet-card h1 {
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.wallet-card p {
+  font-size: 13px;
+}
+
+#customer-list,
+#customer-transactions {
+  padding: 15px;
+  background: #f1f3f2;
+  border-radius: 5px;
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+@media(max-width: 600px) {
+  .dashboard {
+    margin: 12px 8px;
+    padding: 18px;
+  }
+
+  .wallet-card h1 {
+    font-size: 25px;
+  }
+}
