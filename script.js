@@ -262,3 +262,77 @@ renderSlip();
     console.error("MYBET connection error:", error);
   }
 })();
+window.handleMyBetAuth = async function () {
+  const supabase = window.mybetSupabase;
+
+  if (!supabase) {
+    alert("Connection not ready. Refresh and try again.");
+    return;
+  }
+
+  const phone = document.getElementById("mybet-phone").value.trim().replace(/\s+/g, "");
+  const password = document.getElementById("mybet-password").value;
+
+  if (password.length < 4) {
+    alert("Password must contain at least 4 characters.");
+    return;
+  }
+
+  const isRegister =
+    document.getElementById("modal-title").textContent.trim().toLowerCase() === "register";
+
+  const validPhone = /^\+(254|260|265)\d{7,12}$/.test(phone);
+
+  if (isRegister && !validPhone) {
+    alert("Use a valid international number: +254, +260 or +265.");
+    return;
+  }
+
+  try {
+    let data, error;
+
+    if (isRegister) {
+      ({ data, error } = await supabase.auth.signUp({
+        phone: phone,
+        password: password
+      }));
+    } else if (phone.includes("@")) {
+      ({ data, error } = await supabase.auth.signInWithPassword({
+        email: phone,
+        password: password
+      }));
+    } else {
+      if (!validPhone) {
+        alert("Enter your phone number with +254, +260 or +265.");
+        return;
+      }
+
+      ({ data, error } = await supabase.auth.signInWithPassword({
+        phone: phone,
+        password: password
+      }));
+    }
+
+    if (error) throw error;
+
+    if (isRegister && !data.session) {
+      alert("Registration started. Complete SMS verification if requested.");
+      return;
+    }
+
+    if (data.user) {
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("id", data.user.id)
+        .single();
+
+      if (profileError) throw profileError;
+
+      alert("Welcome! Account type: " + profile.role);
+      closeModal();
+    }
+  } catch (error) {
+    alert("Account error: " + error.message);
+  }
+};
