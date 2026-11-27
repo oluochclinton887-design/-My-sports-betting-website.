@@ -98,9 +98,15 @@
   <div class="modal-box">
     <button class="close" onclick="closeModal()">×</button>
     <h2 id="modal-title">Login</h2>
-    <input type="text" placeholder="Username or email">
-    <input type="password" placeholder="Password">
-    <button onclick="alert('Demo interface only. Account services are not connected.')">Continue</button>
+    
+<input id="mybet-phone" type="tel" placeholder="Phone number (e.g. +2547...)" autocomplete="tel">
+
+<input id="mybet-password" type="password" placeholder="Password" autocomplete="current-password">
+
+<button onclick="handleMyBetAuth()">Continue</button>
+    
+    
+    
     <p>Demo account interface</p>
   </div>
 </div>
