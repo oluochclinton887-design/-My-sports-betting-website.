@@ -242,3 +242,23 @@ function closeModal() {
 
 renderMatches();
 renderSlip();
+// MYBET - Supabase connection
+(async function () {
+  const SUPABASE_URL = "https://mbvygwayikxkqbgodapz.supabase.co/rest/v1/";
+  const SUPABASE_KEY = "sb_publishable_LJjXjLZXDMZuxzVljXVeCA_XZjuogsg";
+
+  try {
+    const { createClient } = await import(
+      "https://esm.sh/@supabase/supabase-js@2"
+    );
+
+    window.mybetSupabase = createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    console.log("MYBET connected to Supabase!");
+  } catch (error) {
+    console.error("MYBET connection error:", error);
+  }
+})();
