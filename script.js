@@ -244,7 +244,7 @@ renderMatches();
 renderSlip();
 // MYBET - Supabase connection
 (async function () {
-  const SUPABASE_URL = "https://mbvygwayikxkqbgodapz.supabase.co/rest/v1/";
+  const SUPABASE_URL = "https://mbvygwayikxkqbgodapz.supabase.co";
   const SUPABASE_KEY = "sb_publishable_LJjXjLZXDMZuxzVljXVeCA_XZjuogsg";
 
   try {
